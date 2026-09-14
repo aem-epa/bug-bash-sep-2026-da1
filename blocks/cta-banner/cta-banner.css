@@ -1,0 +1,93 @@
+.cta-banner-container .cta-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.cta-banner {
+  padding: 56px 24px;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  color: #fff;
+}
+
+.cta-banner-content {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.cta-banner-content h2,
+.cta-banner-content h3 {
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.cta-banner-content p {
+  margin: 0 0 20px;
+  color: rgb(255 255 255 / 92%);
+  font-size: var(--body-font-size-m);
+}
+
+.cta-banner .button-wrapper {
+  display: inline-block;
+  margin: 0 6px 8px;
+}
+
+.cta-banner .button.primary {
+  border-color: #fff;
+  background: #fff;
+  color: var(--brand-primary-dark);
+}
+
+.cta-banner .button.primary:hover,
+.cta-banner .button.primary:focus-visible {
+  border-color: var(--brand-cream);
+  background: var(--brand-cream);
+  color: var(--brand-primary-dark);
+}
+
+.cta-banner .button.secondary {
+  border-color: #fff;
+  color: #fff;
+}
+
+.cta-banner .button.secondary:hover,
+.cta-banner .button.secondary:focus-visible {
+  border-color: #fff;
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+}
+
+/* decorative (non-submitting) newsletter form */
+.cta-banner-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 480px;
+  margin: 8px auto 0;
+}
+
+.cta-banner-form input {
+  flex: 1 1 220px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: var(--radius-l);
+  font-size: var(--body-font-size-s);
+}
+
+.cta-banner-form .button.accent {
+  border-color: var(--brand-deep);
+  background: var(--brand-deep);
+  color: #fff;
+}
+
+.cta-banner-form .button.accent:hover {
+  border-color: #16281c;
+  background: #16281c;
+}
+
+@media (width >= 900px) {
+  .cta-banner {
+    padding: 76px 32px;
+  }
+}

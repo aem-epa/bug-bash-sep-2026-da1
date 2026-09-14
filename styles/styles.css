@@ -12,12 +12,31 @@
 
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --background-color: #fff;
+  --light-color: #eef6ee;
+  --dark-color: #24331d;
+  --text-color: #14231a;
+  --link-color: #3a7d44;
+  --link-hover-color: #2c5c33;
+
+  /* brand (Fresh Matcha) */
+  --brand-primary: #3a7d44;
+  --brand-primary-dark: #2c5c33;
+  --brand-accent: #4c9a2a;
+  --brand-accent-dark: #3c7a21;
+  --brand-deep: #1f3a26;
+  --brand-cream: #f7f9f4;
+  --brand-tint: #eef6ee;
+  --brand-tint-2: #e2efe0;
+  --brand-muted: #5c7362;
+  --brand-gold: #c9a24b;
+
+  /* effects */
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 26px;
+  --shadow-s: 0 1px 3px rgb(20 35 26 / 8%);
+  --shadow-m: 0 14px 34px rgb(20 35 26 / 10%);
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -119,6 +138,11 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
+/* tighten default heading rhythm for marketing layouts */
+main .default-content-wrapper > h2 {
+  margin-top: 0;
+}
+
 p,
 dl,
 ol,
@@ -199,8 +223,8 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
+  border-color: var(--brand-primary);
+  background-color: var(--brand-primary);
   color: var(--background-color);
 }
 
@@ -208,9 +232,9 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--brand-primary-dark);
+  background-color: var(--brand-primary-dark);
+  color: #fff;
 }
 
 a.button.primary[aria-disabled="true"],
@@ -226,18 +250,18 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--brand-primary);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--brand-primary);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--brand-primary-dark);
+  background-color: var(--brand-tint);
+  color: var(--brand-primary-dark);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -254,8 +278,8 @@ button.button.secondary:disabled:focus-visible {
 /* high-impact call-to-action */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
+  border-color: var(--brand-accent);
+  background-color: var(--brand-accent);
   color: var(--background-color);
 }
 
@@ -263,8 +287,8 @@ a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: var(--brand-accent-dark);
+  background-color: var(--brand-accent-dark);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -322,4 +346,77 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* full-width brand bands (class authored directly on the section div) */
+main .section.brand-tint,
+main .section.brand-cream,
+main .section.brand-dark {
+  margin: 0;
+  padding: 64px 0;
+}
+
+main .section.brand-tint {
+  background-color: var(--brand-tint);
+}
+
+main .section.brand-cream {
+  background-color: var(--brand-cream);
+}
+
+main .section.brand-dark {
+  background: linear-gradient(160deg, var(--brand-deep), var(--brand-primary-dark));
+  color: #fff;
+}
+
+main .section.brand-dark h1,
+main .section.brand-dark h2,
+main .section.brand-dark h3 {
+  color: #fff;
+}
+
+main .section.brand-dark a:not(.button):any-link {
+  color: #d8ecc9;
+}
+
+main .section.brand-dark .button.primary {
+  border-color: #fff;
+  background: #fff;
+  color: var(--brand-primary-dark);
+}
+
+main .section.brand-dark .button.primary:hover,
+main .section.brand-dark .button.primary:focus-visible {
+  border-color: var(--brand-cream);
+  background: var(--brand-cream);
+  color: var(--brand-primary-dark);
+}
+
+main .section.brand-dark .button.secondary {
+  border-color: #fff;
+  color: #fff;
+}
+
+main .section.brand-dark .button.secondary:hover,
+main .section.brand-dark .button.secondary:focus-visible {
+  border-color: #fff;
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+}
+
+/* centered section intro */
+main .section.center .default-content-wrapper {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* small uppercase eyebrow label: author as an H6 inside a .eyebrow section */
+main .section.eyebrow-accent .default-content-wrapper > p:first-child {
+  margin-bottom: 0;
+  color: var(--brand-accent);
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f3a26"/>
+      <stop offset="1" stop-color="#2c5c33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="#4c9a2a" opacity="0.9">
+    <path d="M980 120c60-40 130-36 184-6-30 60-92 96-156 90-24-2-38-18-40-42-1-16 3-30 12-42Z"/>
+    <path d="M980 250c-66-30-138-14-186 30 44 46 112 60 168 40 22-8 32-24 30-46-1-12-6-20-12-24Z"/>
+  </g>
+  <text x="96" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="700" fill="#ffffff">Teascopa</text>
+  <text x="100" y="372" font-family="Arial, sans-serif" font-size="40" fill="#bfe3a0">Loose-leaf teas, thoughtfully sourced.</text>
+  <rect x="100" y="420" width="92" height="6" rx="3" fill="#4c9a2a"/>
+  <text x="100" y="500" font-family="Arial, sans-serif" font-size="30" fill="#d8e7d0">Whole-leaf greens, blacks, oolongs &amp; herbals · Portland, OR</text>
+</svg>

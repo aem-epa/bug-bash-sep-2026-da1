@@ -1,0 +1,51 @@
+.stats {
+  display: grid;
+  gap: 28px 16px;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+
+.stat {
+  padding: 8px;
+}
+
+.stat-value {
+  color: var(--brand-primary);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-value p {
+  margin: 0;
+}
+
+.stat-label {
+  margin-top: 10px;
+  color: var(--brand-muted);
+  font-size: var(--body-font-size-s);
+}
+
+.stat-label p {
+  margin: 0;
+}
+
+/* on the dark sustainability band */
+.brand-dark .stats .stat-value {
+  color: #bfe3a0;
+}
+
+.brand-dark .stats .stat-label {
+  color: #d0e2c9;
+}
+
+@media (width >= 700px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stats.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

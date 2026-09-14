@@ -10,6 +10,9 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toClassName,
+  toCamelCase,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,6 +146,38 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies `Section Metadata` tables to their section.
+ * This repo's vendored `aem.js` `decorateSections` does not read section metadata, so we
+ * restore the standard behavior here: `Style` becomes CSS class(es) on the section, `Id`
+ * becomes the section id (anchor), and any other key becomes a `data-*` attribute. The
+ * metadata block is then removed so it is not treated as a real block by `decorateBlocks`.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('div.section-metadata').forEach((metaBlock) => {
+    const section = metaBlock.closest('.section');
+    if (!section) return;
+    const meta = readBlockConfig(metaBlock);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        meta.style.split(',').forEach((style) => {
+          const className = toClassName(style.trim());
+          if (className) section.classList.add(className);
+        });
+      } else if (key === 'id') {
+        section.id = toClassName(meta.id);
+      } else {
+        section.dataset[toCamelCase(key)] = meta[key];
+      }
+    });
+    // remove the metadata block (and its now-empty wrapper) from the section
+    const wrapper = metaBlock.parentElement;
+    metaBlock.remove();
+    if (wrapper && wrapper.children.length === 0) wrapper.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +186,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
